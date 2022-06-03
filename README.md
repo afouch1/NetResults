@@ -182,12 +182,12 @@ The `Result` class has a static `Try()` method for mapping some operation than c
 ```c#
 public void FunctionThatCanThrow()
 {
-   // Perform operation that can throw exception
+    // Perform operation that can throw exception
 }
 
 public void HandleMyException(Exception e)
 {
-	// Handle the exception  
+    // Handle the exception  
 }
 
 Result.Try(
@@ -196,7 +196,7 @@ Result.Try(
 );
 
 // Or shorthand
-Result.Try(FunctionThatCanThrow, HandholeMyException);
+Result.Try(FunctionThatCanThrow, HandleMyException);
 ```
 
 `Try()` can also return values if needed, however both the throwable function and the exception handler must return the same type
