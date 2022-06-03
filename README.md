@@ -22,7 +22,7 @@ When returning results, the types are inferred and can the static methods can om
 public Result<int, string> ErrorIfOverTen(int a)
 {
   if (a > 10)
-		return "An error occurred. 'a' was greater than 10. ";
+    return "An error occurred. 'a' was greater than 10. ";
   else
     return a;
 }
@@ -58,7 +58,7 @@ the `OnSuccess()` method performs some function on the value if it is a successf
 var res = ErrorIfOverTen(20);
 
 res.OnSuccess(
-	ok => Console.WriteLine("Success: " + ok)
+    ok => Console.WriteLine("Success: " + ok)
 );
 ```
 
@@ -68,7 +68,7 @@ the `OnError()` method performs some function if the value is unsuccessful:
 var res = ErrorIfOverTen(6);
 
 res.OnError(
-	err => Console.WriteLine("An error occurred: " + err)
+    err => Console.WriteLine("An error occurred: " + err)
 );
 ```
 
@@ -88,8 +88,8 @@ var res = ErrorIfOverTen(20);
 
 // Note that both methods must return the same type
 var newNumber = res.Match(
-	ok => ok + 4 * 3, // on success
-  err => 0 // on error
+    ok => ok + 4 * 3, // on success
+    err => 0 // on error
 )
 ```
 
@@ -182,7 +182,7 @@ The `Result` class has a static `Try()` method for mapping some operation than c
 ```c#
 public void FunctionThatCanThrow()
 {
-  // Perform operation that can throw exception
+   // Perform operation that can throw exception
 }
 
 public void HandleMyException(Exception e)
@@ -192,7 +192,7 @@ public void HandleMyException(Exception e)
 
 Result.Try(
 	() => FunctionThatCanThrow(), 
-  e => HandleMyException(e)
+    e => HandleMyException(e)
 );
 
 // Or shorthand
@@ -207,8 +207,8 @@ Result types themselves also have a `Try()` method that can be called on them to
 var res = ErrorIfOverTen(14);
 
 res.Try(
-	ok => FunctionThatCanThrow(ok),
-  e => Console.WriteLine(e)
+    ok => FunctionThatCanThrow(ok),
+    e => Console.WriteLine(e)
 )
 ```
 
